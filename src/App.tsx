@@ -1,3 +1,4 @@
+import HomePage from "./HomePage"
 import { FormEvent, ReactNode, useId, useState } from "react"
 
 type AuthMode = "login" | "signup"
@@ -158,6 +159,7 @@ function AuthField({
 }
 
 export default function App() {
+  const [demoSignedIn, setDemoSignedIn] = useState(false)
   const [mode, setMode] = useState<AuthMode>("login")
   const [message, setMessage] = useState("")
 
@@ -168,15 +170,16 @@ export default function App() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setMessage(
-      mode === "login"
-        ? "Welcome back — opening your closet."
-        : "Your ClosetIQ wardrobe is ready to begin.",
-    )
+    // UI demo only: real authentication is not implemented yet.
+    setDemoSignedIn(true)
   }
 
   const handleSocial = (provider: string) => {
     setMessage(`${provider} sign-in is ready to connect.`)
+  }
+
+  if (demoSignedIn) {
+    return <HomePage onSignOut={() => setDemoSignedIn(false)} />
   }
 
   return (
