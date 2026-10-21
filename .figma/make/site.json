@@ -1,0 +1,10 @@
+{
+  "description": "Enables users to securely log in or sign up using email or social accounts with a clean, accessible interface tailored for seamless mobile access.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
