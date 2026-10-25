@@ -139,11 +139,19 @@ function ActionCard({
   )
 }
 
-export default function HomePage({ onSignOut }: { onSignOut: () => void }) {
+export default function HomePage({
+  onSignOut,
+  onNavigate,
+  startInBuilder = false,
+}: {
+  onSignOut: () => void
+  onNavigate?: (destination: NavItem) => void
+  startInBuilder?: boolean
+}) {
   const [saved, setSaved] = useState(false)
-  const [activeNav, setActiveNav] = useState<NavItem>("Home")
+  const [activeNav, setActiveNav] = useState<NavItem>(startInBuilder ? "Build" : "Home")
   const [notice, setNotice] = useState("")
-  const [builderOpen, setBuilderOpen] = useState(false)
+  const [builderOpen, setBuilderOpen] = useState(startInBuilder)
 
   const announce = (message: string) => {
     setNotice(message)
@@ -156,6 +164,10 @@ export default function HomePage({ onSignOut }: { onSignOut: () => void }) {
   }
 
   const selectNav = (item: NavItem) => {
+    if (item === "Closet") {
+      onNavigate?.("Closet")
+      return
+    }
     setActiveNav(item)
     if (item === "Build") {
       setBuilderOpen(true)

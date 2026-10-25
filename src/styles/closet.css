@@ -1,0 +1,757 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap");
+
+.closet-page-shell {
+  --closet-background: #f5f3ef;
+  --closet-stone: #e6e2db;
+  --closet-ink: #1b1b1b;
+  --closet-sage: #737b70;
+  --closet-sage-dark: #596157;
+  --closet-white: #fff;
+  --closet-muted: #797670;
+  --closet-line: #d8d4cc;
+  --closet-soft-line: rgba(27, 27, 27, 0.09);
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  color: var(--closet-ink);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 49.8%,
+      rgba(115, 123, 112, 0.08) 49.8% 50.2%,
+      transparent 50.2% 100%
+    ),
+    var(--closet-stone);
+  background-size: 92px 100%, auto;
+  font-family: "DM Sans", sans-serif;
+}
+
+.closet-page {
+  width: min(100%, 430px);
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  background: var(--closet-background);
+}
+
+.closet-page-content {
+  padding: 27px 17px 116px;
+}
+
+.closet-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.closet-title-block > p,
+.detail-topline > span,
+.closet-empty-state > span {
+  margin: 0;
+  color: var(--closet-sage);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+}
+
+.closet-title-block h1 {
+  margin: 13px 0 3px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 37px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.closet-title-block > span {
+  color: var(--closet-muted);
+  font-size: 12px;
+}
+
+.create-outfit-button {
+  display: flex;
+  height: 43px;
+  padding: 0 14px;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 13px;
+  color: var(--closet-white);
+  background: var(--closet-ink);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background 160ms ease;
+}
+
+.create-outfit-button:hover {
+  background: var(--closet-sage-dark);
+}
+
+.create-outfit-button:active {
+  transform: scale(0.97);
+}
+
+.create-outfit-button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.closet-tools {
+  padding-top: 29px;
+}
+
+.closet-search {
+  display: flex;
+  height: 47px;
+  padding: 0 14px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--closet-soft-line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.closet-search > svg {
+  width: 18px;
+  color: var(--closet-sage);
+}
+
+.closet-search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: var(--closet-ink);
+  background: transparent;
+  font-size: 11px;
+}
+
+.closet-search input::placeholder {
+  color: #9a9791;
+}
+
+.closet-search > button {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--closet-stone);
+  cursor: pointer;
+}
+
+.closet-search > button svg {
+  width: 12px;
+}
+
+.filter-scroll {
+  display: flex;
+  gap: 7px;
+  margin: 10px -17px 0 0;
+  padding-right: 17px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-scroll button {
+  min-width: max-content;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--closet-line);
+  border-radius: 999px;
+  color: var(--closet-muted);
+  background: transparent;
+  font-size: 9px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 150ms ease;
+}
+
+.filter-scroll button.active {
+  border-color: var(--closet-sage);
+  color: var(--closet-white);
+  background: var(--closet-sage);
+}
+
+.filter-scroll .favorites-filter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.favorites-filter svg {
+  width: 12px;
+}
+
+.closet-gallery-heading {
+  display: flex;
+  margin: 28px 2px 12px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.closet-gallery-heading p {
+  margin: 0;
+  color: var(--closet-muted);
+  font-size: 10px;
+}
+
+.closet-gallery-heading strong {
+  color: var(--closet-ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
+}
+
+.closet-gallery-heading > span {
+  color: var(--closet-sage);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.closet-gallery {
+  display: grid;
+  gap: 11px;
+}
+
+.closet-gallery-row {
+  display: grid;
+  gap: 11px;
+}
+
+.closet-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.closet-outfit-card {
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--closet-soft-line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.closet-outfit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 28px rgba(38, 36, 31, 0.07);
+}
+
+.closet-outfit-card.selected {
+  border-color: var(--closet-sage);
+  box-shadow: 0 0 0 1px var(--closet-sage);
+}
+
+.outfit-card-main {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.closet-cover {
+  overflow: hidden;
+  position: relative;
+  background: var(--closet-stone);
+}
+
+.closet-cover.collage {
+  display: grid;
+  height: 206px;
+  padding: 8px;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: 1.04fr 0.96fr;
+  gap: 5px;
+}
+
+.collage-piece {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #eeece7;
+}
+
+.collage-piece:first-child {
+  grid-row: 1 / 3;
+}
+
+.collage-piece:nth-child(4) {
+  display: none;
+}
+
+.collage-piece img,
+.closet-cover.uploaded img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.72) contrast(0.94);
+}
+
+.collage-piece:first-child img {
+  object-position: center;
+}
+
+.collage-count,
+.closet-cover.uploaded > span {
+  padding: 5px 7px;
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 7px;
+  color: var(--closet-ink);
+  background: rgba(245, 243, 239, 0.84);
+  backdrop-filter: blur(7px);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.closet-cover.uploaded {
+  height: 206px;
+}
+
+.closet-cover.uploaded img {
+  filter: saturate(0.82) contrast(0.97);
+}
+
+.outfit-card-copy {
+  display: grid;
+  min-height: 84px;
+  padding: 12px 11px 11px;
+  position: relative;
+}
+
+.outfit-card-copy strong {
+  max-width: calc(100% - 27px);
+  overflow: hidden;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.outfit-card-copy > span {
+  margin-top: 3px;
+  color: var(--closet-sage-dark);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.outfit-card-copy small {
+  margin-top: 8px;
+  color: var(--closet-muted);
+  font-size: 8px;
+}
+
+.favorite-button {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  padding: 0;
+  place-items: center;
+  position: absolute;
+  z-index: 2;
+  right: 9px;
+  bottom: 44px;
+  border: 1px solid var(--closet-line);
+  border-radius: 50%;
+  color: var(--closet-ink);
+  background: var(--closet-background);
+  cursor: pointer;
+}
+
+.favorite-button svg {
+  width: 14px;
+}
+
+.favorite-button.active {
+  border-color: var(--closet-sage);
+  color: var(--closet-white);
+  background: var(--closet-sage);
+}
+
+.outfit-detail-panel {
+  padding: 16px 14px 18px;
+  overflow: hidden;
+  border: 1px solid var(--closet-soft-line);
+  border-radius: 18px;
+  background: var(--closet-white);
+  box-shadow: 0 18px 40px rgba(43, 40, 34, 0.08);
+  animation: closet-detail-in 220ms ease both;
+}
+
+.detail-topline {
+  display: flex;
+  margin-bottom: 13px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-close {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--closet-line);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.detail-close svg {
+  width: 13px;
+}
+
+.outfit-detail-panel .closet-cover.large {
+  height: 310px;
+  padding: 11px;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 7px;
+  border-radius: 14px;
+}
+
+.outfit-detail-panel .closet-cover.large .collage-piece {
+  border-radius: 11px;
+}
+
+.detail-heading {
+  display: flex;
+  margin-top: 18px;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.detail-heading p {
+  margin: 0 0 4px;
+  color: var(--closet-sage);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detail-heading h2,
+.closet-empty-state h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+
+.edit-cover-button {
+  display: flex;
+  min-width: max-content;
+  height: 34px;
+  padding: 0 10px;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--closet-line);
+  border-radius: 10px;
+  background: var(--closet-background);
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-cover-button svg {
+  width: 13px;
+}
+
+.cover-file-input {
+  display: none;
+}
+
+.detail-description {
+  max-width: 330px;
+  margin: 12px 0 0;
+  color: var(--closet-muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.reset-cover-button {
+  margin-top: 11px;
+  padding: 0;
+  border: 0;
+  color: var(--closet-sage-dark);
+  background: transparent;
+  font-size: 9px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.pieces-heading {
+  display: flex;
+  margin-top: 25px;
+  padding-bottom: 10px;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--closet-line);
+}
+
+.pieces-heading h3 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.pieces-heading span {
+  color: var(--closet-muted);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.piece-list {
+  display: grid;
+}
+
+.piece-row {
+  display: grid;
+  min-width: 0;
+  padding: 9px 0;
+  grid-template-columns: 21px 51px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid var(--closet-soft-line);
+}
+
+.piece-row:last-child {
+  border-bottom: 0;
+}
+
+.piece-index {
+  color: #aaa69f;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 8px;
+}
+
+.piece-row img {
+  width: 51px;
+  height: 59px;
+  border-radius: 9px;
+  object-fit: cover;
+  filter: saturate(0.72);
+}
+
+.piece-copy {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.piece-copy strong {
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.piece-copy small {
+  color: var(--closet-muted);
+  font-size: 8px;
+}
+
+.piece-color {
+  max-width: 65px;
+  color: var(--closet-sage-dark);
+  font-size: 8px;
+  text-align: right;
+}
+
+.closet-empty-state {
+  padding: 55px 20px 70px;
+  border: 1px solid var(--closet-soft-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.52);
+  text-align: center;
+}
+
+.closet-empty-state h2 {
+  margin-top: 10px;
+}
+
+.closet-empty-state p {
+  margin: 7px 0 18px;
+  color: var(--closet-muted);
+  font-size: 10px;
+}
+
+.closet-empty-state button {
+  height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--closet-white);
+  background: var(--closet-sage);
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.closet-bottom-nav {
+  display: grid;
+  width: min(100%, 430px);
+  height: 82px;
+  padding: 10px 11px max(11px, env(safe-area-inset-bottom));
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  z-index: 20;
+  right: 50%;
+  bottom: 0;
+  transform: translateX(50%);
+  border-top: 1px solid var(--closet-soft-line);
+  background: rgba(250, 249, 246, 0.94);
+  backdrop-filter: blur(16px);
+}
+
+.closet-bottom-nav button {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 0;
+  color: #99958f;
+  background: transparent;
+  font-size: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.closet-bottom-nav button.active {
+  color: var(--closet-ink);
+}
+
+.closet-nav-icon {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.closet-nav-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.closet-bottom-nav .build-nav .closet-nav-icon {
+  width: 42px;
+  height: 42px;
+  margin-top: -17px;
+  border-radius: 14px;
+  color: var(--closet-white);
+  background: var(--closet-sage);
+  box-shadow: 0 7px 18px rgba(64, 70, 62, 0.2);
+}
+
+.closet-toast {
+  width: max-content;
+  max-width: calc(100% - 40px);
+  margin: 0;
+  padding: 10px 14px;
+  position: fixed;
+  z-index: 40;
+  right: 50%;
+  bottom: 94px;
+  transform: translate(50%, 10px);
+  border-radius: 12px;
+  color: var(--closet-white);
+  background: rgba(27, 27, 27, 0.92);
+  box-shadow: 0 8px 25px rgba(27, 27, 27, 0.18);
+  font-size: 10px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 180ms ease;
+}
+
+.closet-toast.visible {
+  transform: translate(50%, 0);
+  opacity: 1;
+}
+
+@keyframes closet-detail-in {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .closet-page {
+    min-height: min(920px, calc(100svh - 40px));
+    margin: 20px 0;
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(50, 46, 39, 0.16);
+  }
+
+  .closet-bottom-nav {
+    bottom: 20px;
+    border-radius: 0 0 30px 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  .closet-page-content {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .closet-title-block h1 {
+    font-size: 34px;
+  }
+
+  .closet-cover.collage,
+  .closet-cover.uploaded {
+    height: 186px;
+  }
+
+  .filter-scroll {
+    margin-right: -13px;
+    padding-right: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .closet-page *,
+  .closet-page *::before,
+  .closet-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
