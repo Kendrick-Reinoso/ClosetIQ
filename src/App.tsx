@@ -2,24 +2,21 @@ import { useState } from "react"
 import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ClosetPage from "./pages/ClosetPage"
+import OutfitBuilderPage from "./pages/OutfitBuilderPage"
 
 type Destination = "Home" | "Closet" | "Build" | "Explore" | "Profile"
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [page, setPage] = useState<"home" | "closet">("home")
-  const [startInBuilder, setStartInBuilder] = useState(false)
+  const [page, setPage] = useState<"home" | "closet" | "builder">("home")
 
   const navigate = (destination: Destination) => {
     if (destination === "Closet") {
-      setStartInBuilder(false)
       setPage("closet")
     } else if (destination === "Build") {
-      setStartInBuilder(true)
-      setPage("home")
+      setPage("builder")
     } else {
       // Explore and Profile are not implemented yet; return to Home.
-      setStartInBuilder(false)
       setPage("home")
     }
   }
@@ -37,15 +34,17 @@ export default function App() {
     )
   }
 
+  if (page === "builder") {
+    return <OutfitBuilderPage onNavigate={navigate} />
+  }
+
   return (
     <HomePage
       onSignOut={() => {
         setIsLoggedIn(false)
         setPage("home")
-        setStartInBuilder(false)
       }}
       onNavigate={navigate}
-      startInBuilder={startInBuilder}
     />
   )
 }

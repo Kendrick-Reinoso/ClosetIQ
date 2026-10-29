@@ -159,8 +159,7 @@ export default function HomePage({
   }
 
   const openBuilder = () => {
-    setActiveNav("Build")
-    setBuilderOpen(true)
+    onNavigate?.("Build")
   }
 
   const selectNav = (item: NavItem) => {
@@ -170,7 +169,7 @@ export default function HomePage({
     }
     setActiveNav(item)
     if (item === "Build") {
-      setBuilderOpen(true)
+      onNavigate?.("Build")
       return
     }
     if (item !== "Home") announce(`${item} is ready for your next screen.`)
