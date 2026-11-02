@@ -163,8 +163,8 @@ export default function HomePage({
   }
 
   const selectNav = (item: NavItem) => {
-    if (item === "Closet") {
-      onNavigate?.("Closet")
+    if (item === "Closet" || item === "Explore") {
+      onNavigate?.(item)
       return
     }
     setActiveNav(item)

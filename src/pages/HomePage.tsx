@@ -163,7 +163,7 @@ export default function HomePage({
   }
 
   const selectNav = (item: NavItem) => {
-    if (item === "Closet" || item === "Explore") {
+    if (item === "Closet" || item === "Explore" || item === "Profile") {
       onNavigate?.(item)
       return
     }
